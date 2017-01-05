@@ -1,5 +1,5 @@
 <?php
-	public class Logic
+	class Logic
 	{
 		function generateRandom() {
 			$_SESSION['guesses'] = 1;
