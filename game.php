@@ -6,6 +6,7 @@
 	
 	function generateRandom() {
 		$_SESSION['number'] = rand(1, 10);
+		$_SESSION['guesses'] = 1;
 	}
 	
 	if(!isset($_SESSION['number']) ) generateRandom();
@@ -19,17 +20,15 @@
 		$guess=$_POST['guess'];
 		if ($guess > $number) {
 			$message = "Skaičius yra mažesnis.";
+			$_SESSION['guesses'] += 1;
 		} else if ($guess < $number) {
 			$message = "Skaičius yra didesnis.";
+			$_SESSION['guesses'] += 1;
 		} else {
 			$won = true;
 			$message = "Atspėjot";
 		}
 	}
-	
-
-	
-
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +53,8 @@
 		<form role="form" method="post" action="game.php">
 			<input type="submit" value="Iš naujo" name="new_game"></input>
 		<form>
-		';
+		<br>
+		<p>Atspėta iš '.$_SESSION['guesses'].' karto';
 	?>
 </body>
 </html>
