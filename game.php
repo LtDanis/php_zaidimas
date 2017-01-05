@@ -43,7 +43,7 @@
 			<label><span>Jūsų spėjimas: &nbsp;</span></label>
 			<input name="guess" type="number"  min="1" max="10" required autofocus></input>
 			
-			<input type="submit" value="Spėti" name="submit"></input>
+			<input type="submit" value="Spėti" name="submit" <?php if($won) echo "disabled";?>></input>
 		</fieldset>
 	</form>
 
